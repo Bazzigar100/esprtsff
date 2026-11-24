@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>INDIA PRIDE ESPORTS</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090d;--card:#14151c;--orange:#ff6b24;--pink:#ff2788;--muted:#a4a5b0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:white;font-family:Poppins,sans-serif}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font:inherit;border:0}
+.wrap{width:92%;max-width:1120px;margin:auto}
+section{padding:65px 0}
+.title{text-align:center;margin-bottom:30px}
+.title h2{font-family:Orbitron;font-size:clamp(25px,5vw,40px)}
+.title span{color:var(--orange)}
+.title p{color:var(--muted)}
+.btn{display:inline-block;padding:12px 17px;border-radius:9px;font-weight:bold;font-size:13px}
+.primary{background:linear-gradient(110deg,var(--orange),var(--pink))}
+.outline{border:1px solid var(--orange)}
+.nav{position:sticky;top:0;background:#08090dee;border-bottom:1px solid #333;z-index:10}
+.navin{height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:900 21px Orbitron}
+.logo span{color:var(--orange)}
+.links{display:flex;gap:18px;font-size:12px}
+.links a:hover{color:var(--orange)}
+.hamb{display:none;background:none;color:white;font-size:24px}
+.hero{min-height:75vh;display:flex;align-items:center;background:linear-gradient(90deg,#08090df5,#08090d88),url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=90') center/cover}
+.hero-inner{max-width:720px}
+.pill{display:inline-block;border:1px solid #ff6b2466;color:var(--orange);padding:7px 12px;border-radius:30px;font-size:11px}
+.hero h1{font:900 clamp(40px,9vw,82px)/1.05 Orbitron}
+.hero h1 span{background:linear-gradient(90deg,var(--orange),var(--pink));color:transparent;background-clip:text}
+.hero p{color:#bbb;line-height:1.8}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap}
+.stats{display:flex;gap:30px;margin-top:35px}
+.stats strong{display:block;font-family:Orbitron;color:var(--orange)}
+.stats small{color:var(--muted)}
+.box{background:var(--card);border:1px solid #333;border-radius:16px;padding:24px}
+.tour{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tour h3{font:700 25px Orbitron}
+.tour p{color:var(--muted);line-height:1.8}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.detail{background:#1b1d25;padding:14px;border-radius:10px}
+.detail small{display:block;color:var(--muted);font-size:11px}
+.detail b{color:var(--orange)}
+.countdown{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.time{background:var(--card);padding:14px;border:1px solid #333;border-radius:10px;min-width:78px;text-align:center}
+.time b{display:block;font:700 23px Orbitron;color:var(--orange)}
+.time small{color:var(--muted)}
+.table-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+th,td{padding:14px;text-align:left;border-bottom:1px solid #292a34}
+th{color:var(--orange);font-family:Orbitron;background:#1b1d25;font-size:11px}
+td:first-child{color:var(--orange)}
+.cards,.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.player{background:var(--card);border:1px solid #292a34;border-radius:14px;text-align:center;padding:22px}
+.avatar{width:78px;height:78px;border-radius:50%;margin:auto auto 12px;background:linear-gradient(130deg,var(--orange),var(--pink));display:grid;place-items:center;font:900 24px Orbitron}
+.player h3{font:600 16px Orbitron}
+.player p,.match p{color:var(--muted);font-size:12px}
+.matchlist{display:grid;gap:12px}
+.match{background:var(--card);border:1px solid #292a34;border-radius:14px;padding:17px;display:flex;justify-content:space-between;flex-wrap:wrap}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:14px}
+.formbox{max-width:720px;margin:auto}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field label{display:block;font-size:12px;margin-bottom:6px}
+.field input{width:100%;padding:12px;background:#090a0f;color:white;border:1px solid #333;border-radius:8px;margin-bottom:12px}
+.formbox button{width:100%}
+.qrs{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.qr{width:270px;padding:20px;text-align:center;background:var(--card);border:1px solid #292a34;border-radius:14px}
+.qr h3{font:700 17px Orbitron;color:var(--orange)}
+.qr img{width:100%;height:215px;object-fit:contain;background:white;border-radius:9px;padding:6px}
+.qr p{color:var(--muted)}
+.community{text-align:center;padding:30px;border:1px solid #333;border-radius:16px}
+.community p{color:var(--muted);margin:15px 0}
+.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+footer{text-align:center;padding:30px;border-top:1px solid #292a34;color:var(--muted)}
+footer b{font:700 18px Orbitron;color:var(--orange)}
+.admin-shell{border:1px solid #333;border-radius:18px;overflow:hidden;background:#101117}
+.admin-top{padding:20px;background:linear-gradient(100deg,#21150f,#17131c);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.admin-top h3{font:700 19px Orbitron;margin:0}
+.admin-top p{color:var(--muted);font-size:12px}
+.admin-body{padding:20px}
+.login{max-width:420px;margin:auto;text-align:center;padding:15px}
+.admin-input,.adminform input{width:100%;padding:12px;border:1px solid #333;background:#08090d;color:white;border-radius:8px;margin:8px 0}
+.admin-btn{padding:11px 14px;border-radius:8px;background:linear-gradient(110deg,var(--orange),var(--pink));color:white;font-weight:bold;font-size:12px}
+.admin-btn.secondary{background:#252630}
+.admin-btn.danger{background:#76223f}
+.dash{display:none}
+.dash.show{display:block}
+.dashstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.statcard{padding:16px;background:#1a1b23;border:1px solid #333;border-radius:12px}
+.statcard small{display:block;color:var(--muted)}
+.statcard strong{font:700 22px Orbitron;color:var(--orange);display:block;margin-top:5px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.tab{background:#23242d;color:#ccc;padding:10px 13px;border-radius:8px}
+.tab.active{background:linear-gradient(110deg,var(--orange),var(--pink));color:white}
+.tabpane{display:none}
+.tabpane.active{display:block}
+.adminform{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.adminform .full{grid-column:1/-1}
+.adminlist{display:grid;gap:10px;margin-top:16px}
+.teamrow{display:grid;grid-template-columns:1.4fr repeat(3,.7fr) auto;align-items:center;gap:8px;background:#1b1c24;border:1px solid #333;padding:12px;border-radius:10px;font-size:12px}
+.teamrow span{color:var(--muted)}
+.teamrow button{padding:8px 10px;border-radius:7px;background:#72223e;color:white}
+.admin-tools{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.notice{color:var(--muted);font-size:12px;line-height:1.6}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#20222b;border:1px solid #444;padding:12px 16px;border-radius:9px;z-index:99;display:none}
+@media(max-width:800px){
+.links{display:none;position:absolute;top:68px;left:0;right:0;background:#0b0c11;padding:20px;flex-direction:column}
+.links.open{display:flex}
+.hamb{display:block}
+.tour{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr 1fr}
+.gallery{grid-template-columns:1fr 1fr}
+.dashstats{grid-template-columns:1fr 1fr}
+.adminform{grid-template-columns:1fr 1fr}
+.teamrow{grid-template-columns:1fr 1fr}
+.teamrow button{grid-column:1/-1}
+}
+@media(max-width:520px){
+section{padding:50px 0}
+.cards,.gallery,.formgrid{grid-template-columns:1fr}
+.hero{min-height:70vh}
+.hero h1{font-size:43px}
+.box,.admin-body{padding:16px}
+.adminform{grid-template-columns:1fr}
+.dashstats{gap:8px}
+.statcard{padding:12px}
+.statcard strong{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+<div class="wrap navin">
+<a class="logo" href="#home">INDIA <span>PRIDE</span></a>
+<button class="hamb" onclick="toggleNav()">☰</button>
+<nav class="links" id="links">
+<a href="#home" onclick="closeNav()">HOME</a>
+<a href="#tournament" onclick="closeNav()">TOURNAMENT</a>
+<a href="#leaderboard" onclick="closeNav()">LEADERBOARD</a>
+<a href="#players" onclick="closeNav()">PLAYERS</a>
+<a href="#matches" onclick="closeNav()">MATCHES</a>
+<a href="#register" onclick="closeNav()">REGISTER</a>
+<a href="#community" onclick="closeNav()">COMMUNITY</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="wrap hero-inner">
+<span class="pill">INDIAN ESPORTS COMMUNITY</span>
+<h1>PLAY.<br>COMPETE.<br><span>DOMINATE.</span></h1>
+<p>Build your squad. Enter the battlefield. Earn your place at the top. Welcome to INDIA PRIDE esports.</p>
+<div class="hero-buttons">
+<a class="btn primary" href="#register">REGISTER YOUR SQUAD</a>
+<a class="btn outline" href="#tournament">EXPLORE</a>
+</div>
+<div class="stats">
+<div><strong>FREE FIRE</strong><small>GAME</small></div>
+<div><strong>SQUAD</strong><small>MODE</small></div>
+<div><strong>INDIA</strong><small>COMMUNITY</small></div>
+</div>
+</div>
+</section>
+
+<section id="tournament">
+<div class="wrap">
+<div class="title"><h2>UPCOMING <span>TOURNAMENT</span></h2><p>Get your squad ready</p></div>
+<div class="box tour">
+<div>
+<span class="pill">REGISTRATION OPEN</span>
+<h3>INDIA PRIDE BATTLE</h3>
+<p>Bring your best squad and compete in the INDIA PRIDE Free Fire tournament. Show your teamwork, skill and hunger for victory.</p>
+<a class="btn primary" href="#register">JOIN TOURNAMENT</a>
+</div>
+<div class="details">
+<div class="detail"><small>GAME</small><b>Free Fire</b></div>
+<div class="detail"><small>MODE</small><b>Squad</b></div>
+<div class="detail"><small>ENTRY</small><b>Free</b></div>
+<div class="detail"><small>PRIZE</small><b>TBA</b></div>
+<div class="detail"><small>STATUS</small><b>OPEN</b></div>
+<div class="detail"><small>DATE</small><b>COMING SOON</b></div>
+</div>
+</div>
+<div class="title" style="margin-top:35px">
+<h2>STARTS <span>IN</span></h2>
+<div class="countdown">
+<div class="time"><b id="days">00</b><small>DAYS</small></div>
+<div class="time"><b id="hours">00</b><small>HOURS</small></div>
+<div class="time"><b id="minutes">00</b><small>MINUTES</small></div>
+<div class="time"><b id="seconds">00</b><small>SECONDS</small></div>
+</div>
+</div>
+</section>
+
+<section id="leaderboard">
+<div class="wrap">
+<div class="title"><h2>TEAM <span>LEADERBOARD</span></h2><p>Rankings update from admin dashboard</p></div>
+<div class="table-scroll">
+<table>
+<thead><tr><th>RANK</th><th>TEAM</th><th>KILLS</th><th>BOOYAH</th><th>POINTS</th></tr></thead>
+<tbody id="leaderRows"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="players">
+<div class="wrap">
+<div class="title"><h2>PLAYER <span>PROFILES</span></h2><p>Warriors of INDIA PRIDE</p></div>
+<div class="cards">
+<div class="player"><div class="avatar">IP</div><h3>PLAYER ONE</h3><p>Captain / IGL</p></div>
+<div class="player"><div class="avatar">IP</div><h3>PLAYER TWO</h3><p>Assaulter</p></div>
+<div class="player"><div class="avatar">IP</div><h3>PLAYER THREE</h3><p>Support</p></div>
+</div>
+</div>
+</section>
+
+<section id="matches">
+<div class="wrap">
+<div class="title"><h2>MATCH <span>SCHEDULE</span></h2><p>Rounds and match updates</p></div>
+<div class="matchlist">
+<div class="match"><div><h3>ROUND 01</h3><p>Battle Royale · Squad</p></div><span>DATE TBA</span></div>
+<div class="match"><div><h3>ROUND 02</h3><p>Battle Royale · Squad</p></div><span>DATE TBA</span></div>
+<div class="match"><div><h3>GRAND FINAL</h3><p>Championship Battle</p></div><span>DATE TBA</span></div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="wrap">
+<div class="title"><h2>BATTLE <span>GALLERY</span></h2><p>Esports moments</p></div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80" alt="Esports gaming">
+<img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=900&q=80" alt="Gaming">
+<img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80" alt="Gaming setup">
+</div>
+</div>
+</section>
+
+<section id="register">
+<div class="wrap">
+<div class="title"><h2>SQUAD <span>REGISTRATION</span></h2><p>Submit your team details through WhatsApp</p></div>
+<div class="box formbox">
+<form id="regForm">
+<div class="formgrid">
+<div class="field"><label>Team name</label><input id="rTeam" required placeholder="Team name"></div>
+<div class="field"><label>Captain name</label><input id="rCaptain" required placeholder="Captain name"></div>
+<div class="field"><label>Captain FF UID</label><input id="rUID" required placeholder="Free Fire UID"></div>
+<div class="field"><label>WhatsApp phone</label><input id="rPhone" type="tel" required placeholder="Phone number"></div>
+<div class="field"><label>Player 2</label><input id="rP2" required></div>
+<div class="field"><label>Player 3</label><input id="rP3" required></div>
+<div class="field"><label>Player 4</label><input id="rP4" required></div>
+</div>
+<button class="btn primary" type="submit">SEND REGISTRATION</button>
+</form>
+</div>
+</div>
+</section>
+
+<section id="qr">
+<div class="wrap">
+<div class="title"><h2>SCAN & <span>JOIN</span></h2><p>Connect with INDIA PRIDE</p></div>
+<div class="qrs">
+<div class="qr">
+<h3>INSTAGRAM</h3>
+<img src="instagram-qr.png" alt="Instagram QR">
+<p>@INDIA._PRIDE</p>
+<a class="btn primary" href="https://instagram.com/india._pride" target="_blank">FOLLOW</a>
+</div>
+<div class="qr">
+<h3>TELEGRAM</h3>
+<img src="telegram-qr.png" alt="Telegram QR">
+<p>@INDIAPRIDE1</p>
+<a class="btn primary" href="https://t.me/INDIAPRIDE1" target="_blank">JOIN TELEGRAM</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="community">
+<div class="wrap">
+<div class="community">
+<h2>JOIN THE <span style="color:var(--orange)">COMMUNITY</span></h2>
+<p>Get updates, connect with players and join our tournaments.</p>
+<div class="buttons">
+<a class="btn primary" href="https://t.me/INDIAPRIDE1" target="_blank">TELEGRAM</a>
+<a class="btn outline" href="https://chat.whatsapp.com/K663BOWGN7F2Bdr0Hoxj5P" target="_blank">WHATSAPP</a>
+<a class="btn outline" href="https://instagram.com/india._pride" target="_blank">INSTAGRAM</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="admin">
+<div class="wrap">
+<div class="title"><h2>ADMIN <span>CONTROL CENTER</span></h2><p>Manage teams, scores and leaderboard</p></div>
+
+<div class="admin-shell">
+<div class="admin-top">
+<div><h3>INDIA PRIDE DASHBOARD</h3><p>Admin control panel</p></div>
+<span class="pill">V5 DASHBOARD</span>
+</div>
+
+<div class="admin-body">
+<div class="login" id="adminLogin">
+<h3>ADMIN LOGIN</h3>
+<p class="notice">Enter your dashboard PIN to unlock controls.</p>
+<input class="admin-input" id="pinInput" type="password" placeholder="Admin PIN">
+<button class="admin-btn" onclick="loginAdmin()">UNLOCK DASHBOARD</button>
+</div>
+
+<div class="dash" id="dashboard">
+<div class="dashstats">
+<div class="statcard"><small>Teams</small><strong id="statTeams">0</strong></div>
+<div class="statcard"><small>Total Kills</small><strong id="statKills">0</strong></div>
+<div class="statcard"><small>Booyah</small><strong id="statBooyah">0</strong></div>
+<div class="statcard"><small>Total Points</small><strong id="statPoints">0</strong></div>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('teams',this)">Teams & Scores</button>
+<button class="tab" onclick="showTab('tools',this)">Data Tools</button>
+<button class="tab" onclick="showTab('event',this)">Event Settings</button>
+</div>
+
+<div class="tabpane" id="pane-event">
+<h3>Event Settings</h3>
+<p class="notice">Update tournament details here. These settings appear on the public tournament section.</p>
+<div class="adminform">
+<input id="eventNameInput" class="full" placeholder="Event / tournament name">
+<input id="eventDateInput" type="date" placeholder="Event date">
+<input id="eventTimeInput" type="time" placeholder="Start time">
+<input id="entryFeeInput" placeholder="Entry fee (e.g. Free or ₹50)">
+<input id="prizePoolInput" placeholder="Prize pool / PP (e.g. ₹1,000)">
+<button class="admin-btn full" onclick="saveEventSettings()">SAVE EVENT SETTINGS</button>
+</div>
+</div>
+<div class="tabpane active" id="pane-teams">
+<h3>Add / Update Team</h3>
+<div class="adminform">
+<input id="aName" placeholder="Team name">
+<input id="aKills" type="number" min="0" placeholder="Kills">
+<input id="aBooyah" type="number" min="0" placeholder="Booyah">
+<input id="aPoints" type="number" min="0" placeholder="Points">
+<button class="admin-btn full" onclick="saveTeam()">SAVE TEAM SCORE</button>
+</div>
+<p class="notice">Existing team names will be updated. Rankings sort automatically by points.</p>
+<div class="adminlist" id="teamList"></div>
+</div>
+
+<div class="tabpane" id="pane-tools">
+<h3>Dashboard tools</h3>
+<p class="notice">Export a backup before resetting your leaderboard.</p>
+<div class="admin-tools">
+<button class="admin-btn secondary" onclick="exportData()">EXPORT JSON BACKUP</button>
+<button class="admin-btn secondary" onclick="exportCSV()">EXPORT CSV</button>
+<button class="admin-btn danger" onclick="resetAll()">RESET ALL TEAMS</button>
+<button class="admin-btn secondary" onclick="logoutAdmin()">LOCK DASHBOARD</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<b>INDIA PRIDE</b>
+<p>PLAY • COMPETE • DOMINATE</p>
+<p>© 2026 INDIA PRIDE ESPORTS</p>
+</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ADMIN_PIN="2009";
+const ADMIN_WA="91XXXXXXXXXX";
+const EVENT_DATE="2026-12-31T20:00:00+05:30";
+const KEY="india_pride_v5";
+
+let teams=loadTeams();
+
+function loadTeams(){
+try{return JSON.parse(localStorage.getItem(KEY)||"[]")}
+catch(e){return []}
+}
+function persist(){
+localStorage.setItem(KEY,JSON.stringify(teams));
+}
+function toggleNav(){
+document.getElementById("links").classList.toggle("open");
+}
+function closeNav(){
+document.getElementById("links").classList.remove("open");
+}
+function toast(msg){
+const t=document.getElementById("toast");
+t.textContent=msg;
+t.style.display="block";
+setTimeout(()=>t.style.display="none",2400);
+}
+function esc(s){
+return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+/* LEADERBOARD */
+function renderBoard(){
+const b=document.getElementById("leaderRows");
+const sorted=[...teams].sort((a,b)=>b.points-a.points);
+if(!sorted.length){
+b.innerHTML='<tr><td colspan="5" style="text-align:center;padding:28px;color:#999">Leaderboard updates soon</td></tr>';
+return;
+}
+b.innerHTML=sorted.map((t,i)=>`
+<tr>
+<td>#${i+1}</td>
+<td>${esc(t.name)}</td>
+<td>${t.kills}</td>
+<td>${t.booyah}</td>
+<td>${t.points}</td>
+</tr>`).join("");
+}
+
+/* ADMIN LOGIN */
+function loginAdmin(){
+if(document.getElementById("pinInput").value===ADMIN_PIN){
+document.getElementById("adminLogin").style.display="none";
+document.getElementById("dashboard").classList.add("show");
+renderAdmin();
+toast("Dashboard unlocked");
+}else{
+toast("Incorrect PIN");
+}
+}
+function logoutAdmin(){
+document.getElementById("dashboard").classList.remove("show");
+document.getElementById("adminLogin").style.display="block";
+document.getElementById("pinInput").value="";
+}
+function showTab(tab,btn){
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+document.querySelectorAll(".tabpane").forEach(x=>x.classList.remove("active"));
+btn.classList.add("active");
+document.getElementById("pane-"+tab).classList.add("active");
+}
+
+/* ADMIN STATS */
+function renderAdmin(){
+const list=document.getElementById("teamList");
+list.innerHTML="";
+const sorted=[...teams].sort((a,b)=>b.points-a.points);
+
+sorted.forEach(t=>{
+const d=document.createElement("div");
+d.className="teamrow";
+d.innerHTML=`
+<strong>${esc(t.name)}</strong>
+<span>Kills: ${t.kills}</span>
+<span>Booyah: ${t.booyah}</span>
+<span>Pts: ${t.points}</span>
+<button onclick="deleteTeam('${encodeURIComponent(t.name)}')">DELETE</button>`;
+list.appendChild(d);
+});
+
+document.getElementById("statTeams").textContent=teams.length;
+document.getElementById("statKills").textContent=teams.reduce((s,t)=>s+t.kills,0);
+document.getElementById("statBooyah").textContent=teams.reduce((s,t)=>s+t.booyah,0);
+document.getElementById("statPoints").textContent=teams.reduce((s,t)=>s+t.points,0);
+}
+
+/* ADD OR UPDATE TEAM */
+function saveTeam(){
+const name=document.getElementById("aName").value.trim();
+if(!name){toast("Enter team name");return}
+
+const data={
+name:name,
+kills:Math.max(0,Number(document.getElementById("aKills").value)||0),
+booyah:Math.max(0,Number(document.getElementById("aBooyah").value)||0),
+points:Math.max(0,Number(document.getElementById("aPoints").value)||0)
+};
+
+const idx=teams.findIndex(t=>t.name.toLowerCase()===name.toLowerCase());
+if(idx>=0)teams[idx]=data;
+else teams.push(data);
+
+persist();
+renderBoard();
+renderAdmin();
+
+["aName","aKills","aBooyah","aPoints"].forEach(id=>{
+document.getElementById(id).value="";
+});
+
+toast(idx>=0?"Team score updated":"Team added");
+}
+
+/* DELETE TEAM */
+function deleteTeam(encoded){
+const name=decodeURIComponent(encoded);
+if(!confirm("Delete "+name+" from leaderboard?"))return;
+teams=teams.filter(t=>t.name!==name);
+persist();
+renderBoard();
+renderAdmin();
+toast("Team deleted");
+}
+
+/* RESET */
+function resetAll(){
+if(!confirm("Delete every team from this device?"))return;
+teams=[];
+persist();
+renderBoard();
+renderAdmin();
+toast("Leaderboard reset");
+}
+
+/* EXPORT JSON */
+function exportData(){
+download("india-pride-backup.json",JSON.stringify(teams,null,2),"application/json");
+}
+
+/* EXPORT CSV */
+function exportCSV(){
+const rows=[
+["Team","Kills","Booyah","Points"],
+...teams.map(t=>[t.name,t.kills,t.booyah,t.points])
+];
+const csv=rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(",")).join("\n");
+download("india-pride-leaderboard.csv",csv,"text/csv");
+}
+
+/* DOWNLOAD */
+function download(filename,data,type){
+const blob=new Blob([data],{type:type});
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;
+a.download=filename;
+a.click();
+setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+/* EVENT SETTINGS */
+const EVENT_KEY="india_pride_event_settings_v1";
+let eventSettings={name:"INDIA PRIDE BATTLE",date:"",time:"20:00",entry:"Free",prize:"TBA"};
+function loadEventSettings(){
+ try{eventSettings={...eventSettings,...JSON.parse(localStorage.getItem(EVENT_KEY)||"{}")};}
+ catch(e){console.warn("Event settings load failed",e)}
+}
+function saveEventSettings(){
+ eventSettings={name:document.getElementById("eventNameInput").value.trim()||"INDIA PRIDE BATTLE",date:document.getElementById("eventDateInput").value,time:document.getElementById("eventTimeInput").value||"20:00",entry:document.getElementById("entryFeeInput").value.trim()||"Free",prize:document.getElementById("prizePoolInput").value.trim()||"TBA"};
+ localStorage.setItem(EVENT_KEY,JSON.stringify(eventSettings));applyEventSettings();countdown();toast("Event settings saved!");
+}
+function applyEventSettings(){
+ const name=document.querySelector("#tournament h3");if(name)name.textContent=eventSettings.name;
+ const details=document.querySelectorAll("#tournament .detail b");if(details.length>=6){details[2].textContent=eventSettings.entry;details[3].textContent=eventSettings.prize;details[5].textContent=eventSettings.date?new Date(eventSettings.date+"T00:00:00").toLocaleDateString():"COMING SOON";}
+ const fields={eventNameInput:eventSettings.name,eventDateInput:eventSettings.date,eventTimeInput:eventSettings.time,entryFeeInput:eventSettings.entry,prizePoolInput:eventSettings.prize};Object.entries(fields).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v||""});
+}
+loadEventSettings();
+
+/* COUNTDOWN */
+function countdown(){
+let target=eventSettings.date?new Date(eventSettings.date+"T"+(eventSettings.time||"20:00")+":00"):new Date(EVENT_DATE);
+let d=target-Date.now();
+if(d<0)d=0;
+document.getElementById("days").textContent=Math.floor(d/86400000);
+document.getElementById("hours").textContent=String(Math.floor(d/3600000)%24).padStart(2,"0");
+document.getElementById("minutes").textContent=String(Math.floor(d/60000)%60).padStart(2,"0");
+document.getElementById("seconds").textContent=String(Math.floor(d/1000)%60).padStart(2,"0");
+}
+applyEventSettings();
+countdown();
+setInterval(countdown,1000);
+
+/* REGISTRATION */
+document.getElementById("regForm").addEventListener("submit",function(e){
+e.preventDefault();
+const c=document.getElementById("rCaptain").value;
+const msg=`INDIA PRIDE TOURNAMENT REGISTRATION
+
+Team: ${document.getElementById("rTeam").value}
+Captain: ${c}
+UID: ${document.getElementById("rUID").value}
+Phone: ${document.getElementById("rPhone").value}
+
+Players:
+1. ${c}
+2. ${document.getElementById("rP2").value}
+3. ${document.getElementById("rP3").value}
+4. ${document.getElementById("rP4").value}
+
+We want to register for INDIA PRIDE tournament.`;
+
+window.open("https://wa.me/"+ADMIN_WA+"?text="+encodeURIComponent(msg),"_blank");
+});
+
+renderBoard();
+</script>
+
+</body>
+</html>
